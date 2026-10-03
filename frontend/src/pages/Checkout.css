@@ -1,0 +1,61 @@
+.ck { --ink: #161d33; --gold: #c8923f; --gold-deep: #a9742a; --muted: #6b7088; font-family: "Inter", system-ui, sans-serif; color: #2a2f45; background: #fbf7f0; min-height: 80vh; padding: 48px 0 80px; }
+.ck h1, .ck h2 { font-family: "Playfair Display", Georgia, serif; margin: 0; color: var(--ink); }
+.ck-wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.ck h1 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 28px; }
+.ck h2 { font-size: 24px; margin-bottom: 16px; }
+.ck-note { color: var(--muted); }
+
+.ck-layout { display: grid; grid-template-columns: 1fr 380px; gap: 28px; align-items: start; }
+.ck-card { background: #fff; border-radius: 8px; padding: 28px; box-shadow: 0 10px 28px rgba(22, 29, 51, 0.1); }
+.ck-card h2 + label, .ck-card form > label:first-of-type { margin-top: 0; }
+
+.ck label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+.ck input, .ck textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 6px; font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #e2d9c8; border-radius: 10px; }
+.ck input:focus, .ck textarea:focus { outline: 3px solid rgba(200, 146, 63, 0.45); border-color: var(--gold); }
+.ck-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.ck-pay { margin: 0 0 8px; padding: 14px 16px; background: #f3ebdd; border-radius: 10px; }
+.ck-err { margin: 12px 0 0; padding: 12px 14px; border-radius: 8px; background: #fdecea; color: #a12622; font-size: 14px; }
+
+.ck-sum { position: sticky; top: 16px; }
+.ck-line { display: grid; grid-template-columns: 56px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid #efe7d8; }
+.ck-line img { width: 56px; height: 56px; object-fit: cover; border-radius: 6px; background: #e8e1d3; }
+.ck-line strong { display: block; font-size: 15px; }
+.ck-line span { font-size: 13px; color: var(--muted); }
+.ck-total { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 0; font-size: 18px; }
+.ck-total strong { font-family: "Playfair Display", Georgia, serif; font-size: 28px; }
+
+.ck-btn { display: inline-block; text-align: center; text-decoration: none; cursor: pointer; font: inherit; font-weight: 600; padding: 14px 28px; border: 0; border-radius: 999px; color: #fff; transition: background .15s; }
+.ck-sum .ck-btn { width: 100%; box-sizing: border-box; }
+.ck-gold { background: var(--gold); }
+.ck-gold:hover:not(:disabled) { background: var(--gold-deep); }
+.ck-dark { background: var(--ink); }
+.ck-btn:disabled { opacity: 0.6; cursor: wait; }
+.ck-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.ck-back { display: block; text-align: center; margin-top: 14px; color: var(--gold-deep); font-weight: 600; }
+
+.ck-done { text-align: center; padding-top: 40px; max-width: 600px; }
+.ck-done p { color: #4a4f66; line-height: 1.6; }
+.ck-id { font-weight: 600; color: var(--ink) !important; }
+.ck-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+
+@media (max-width: 880px) { .ck-layout { grid-template-columns: 1fr; } .ck-sum { position: static; } }
+@media (max-width: 520px) { .ck-three { grid-template-columns: 1fr; gap: 0; } .ck-card { padding: 20px; } }
+.ck-methods { display: grid; gap: 10px; margin-bottom: 12px; }
+
+.ck-method {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #f3ebdd;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+.ck-method.active { border-color: #c8923f; background: #f8efe0; }
+.ck-method input { margin-top: 4px; accent-color: #c8923f; width: auto; }
+.ck-method span { display: grid; gap: 2px; }
+.ck-method small { opacity: 0.75; font-size: 14px; }
+
+.ck-upi { margin-top: 4px; }

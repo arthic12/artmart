@@ -1,0 +1,78 @@
+.ct {
+  --ink: #161d33;
+  --ink-2: #222b49;
+  --gold: #c8923f;
+  --paper: #fbf7f0;
+  --muted: #6b7088;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--paper);
+  min-height: 80vh;
+}
+.ct h1, .ct h3 { font-family: "Playfair Display", Georgia, serif; margin: 0; }
+.ct a { text-decoration: none; }
+.ct-wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* Top band */
+.ct-top { background: radial-gradient(ellipse at 20% 0%, var(--ink-2), var(--ink) 70%); padding: 56px 0 44px; }
+.ct-top h1 { color: #fff; font-size: clamp(32px, 4vw, 46px); }
+.ct-top p { color: #c9cde0; margin: 10px 0 0; font-size: 17px; }
+
+/* Body */
+.ct-body { padding-top: 36px; padding-bottom: 80px; }
+.ct-note { color: var(--muted); }
+
+/* Tiles: the biggest category is a large feature tile */
+.ct-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 250px;
+  gap: 20px;
+}
+.ct-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #e8e1d3;
+  box-shadow: 0 10px 28px rgba(22, 29, 51, 0.15);
+}
+.ct-big { grid-column: span 2; grid-row: span 2; }
+.ct-tile img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.ct-tile:hover img { transform: scale(1.06); }
+.ct-tile:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+.ct-icon {
+  position: absolute; top: 14px; left: 14px;
+  width: 42px; height: 42px;
+  display: grid; place-items: center;
+  font-size: 21px;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+.ct-label {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 64px 20px 18px;
+  color: #fff;
+  background: linear-gradient(to top, rgba(14, 19, 36, 0.9), rgba(14, 19, 36, 0));
+}
+.ct-label h3 { font-size: 23px; }
+.ct-big .ct-label h3 { font-size: 34px; }
+.ct-label span { display: block; margin-top: 3px; font-size: 14px; color: #e3e5ef; }
+
+@media (max-width: 960px) {
+  .ct-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 230px; }
+}
+@media (max-width: 520px) {
+  .ct-grid { grid-template-columns: 1fr; grid-auto-rows: 210px; gap: 14px; }
+  .ct-big { grid-column: auto; grid-row: auto; }
+  .ct-big .ct-label h3 { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ct-tile img { transition: none; }
+}

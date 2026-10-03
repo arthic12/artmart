@@ -1,0 +1,39 @@
+.hp { --ink: #161d33; --gold: #c8923f; --gold-deep: #a9742a; --muted: #6b7088; font-family: "Inter", system-ui, sans-serif; color: #2a2f45; background: #fbf7f0; min-height: 80vh; }
+.hp h1, .hp h2, .hp h3 { font-family: "Playfair Display", Georgia, serif; margin: 0; color: var(--ink); }
+.hp-wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+.hp-top { background: radial-gradient(ellipse at 20% 0%, #222b49, var(--ink) 70%); padding: 56px 0 44px; }
+.hp-top h1 { color: #fff; font-size: clamp(32px, 4vw, 44px); }
+.hp-top p { color: #c9cde0; margin: 10px 0 0; font-size: 17px; }
+
+.hp-layout { display: grid; grid-template-columns: 220px 1fr; gap: 32px; padding-top: 36px; padding-bottom: 80px; align-items: start; }
+.hp-tabs { display: flex; flex-direction: column; gap: 6px; }
+.hp-tabs a { text-decoration: none; color: var(--ink); font-weight: 600; padding: 12px 16px; border-radius: 10px; }
+.hp-tabs a:hover { background: #f3ebdd; }
+.hp-tabs a.on { background: var(--ink); color: #fff; }
+.hp-tabs a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.hp-card { background: #fff; border-radius: 8px; padding: 32px; box-shadow: 0 10px 28px rgba(22, 29, 51, 0.1); }
+.hp-card h2 { font-size: 28px; margin-bottom: 14px; }
+.hp-card > p { line-height: 1.65; color: #4a4f66; }
+.hp-row { padding: 16px 0; border-top: 1px solid #efe7d8; }
+.hp-row h3 { font-size: 19px; margin-bottom: 4px; }
+.hp-row p { margin: 0; line-height: 1.65; color: #4a4f66; }
+
+details { border-top: 1px solid #efe7d8; padding: 14px 0; }
+summary { cursor: pointer; font-weight: 600; color: var(--ink); }
+details p { margin: 10px 0 0; line-height: 1.65; color: #4a4f66; }
+
+.hp-form { margin-top: 18px; }
+.hp-form label { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+.hp-form input, .hp-form textarea { display: block; width: 100%; box-sizing: border-box; margin-top: 6px; font: inherit; font-weight: 400; padding: 12px 14px; border: 1px solid #e2d9c8; border-radius: 10px; }
+.hp-form input:focus, .hp-form textarea:focus { outline: 3px solid rgba(200, 146, 63, 0.45); border-color: var(--gold); }
+.hp-form button { cursor: pointer; font: inherit; font-weight: 600; padding: 14px 28px; border: 0; border-radius: 999px; background: var(--gold); color: #fff; }
+.hp-form button:hover { background: var(--gold-deep); }
+
+@media (max-width: 760px) {
+  .hp-layout { grid-template-columns: 1fr; }
+  .hp-tabs { flex-direction: row; overflow-x: auto; }
+  .hp-tabs a { white-space: nowrap; }
+  .hp-card { padding: 22px; }
+}
