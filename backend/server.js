@@ -11,10 +11,10 @@ connectDB();
 const app = express();
 
 // Allow the React frontend to talk to this backend.
-// CLIENT_URL is your Vercel address (set later on Render).
 // localhost stays allowed so your laptop version keeps working.
 const allowedOrigins = [
   "http://localhost:5173",
+  "https://artmart-five.vercel.app",
   process.env.CLIENT_URL,
 ].filter(Boolean);
 
