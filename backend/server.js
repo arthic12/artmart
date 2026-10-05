@@ -10,8 +10,23 @@ connectDB();
 
 const app = express();
 
-// Allow the React frontend to talk to this backend
-app.use(cors({ origin: "http://localhost:5173" }));
+// Allow the React frontend to talk to this backend.
+// CLIENT_URL is your Vercel address (set later on Render).
+// localhost stays allowed so your laptop version keeps working.
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      // Allow tools with no origin (like a browser opening the API directly)
+      if (!origin || allowedOrigins.includes(origin)) return callback(null, true);
+      callback(new Error("Not allowed by CORS"));
+    },
+  })
+);
 
 // Allow the server to read JSON data sent from the frontend
 app.use(express.json());
@@ -33,5 +48,5 @@ app.use("/api/newsletter", require("./routes/newsletterRoutes"));
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
